@@ -5,12 +5,84 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articles={
+  articleone:{
+      title:'Artile One|Adit Agarwal',
+      heading:'Article One',
+      date:'Sept 05 2016',
+      content:`<p>This is the contnt for the first article.This is the contnt for the first article.
+          This is the contnt for the first article.
+          This is the contnt for the first article.
+          This is the contnt for the first article.
+          This is the contnt for the first article.This is the contnt for the first article.This is the contnt for the first article.
+          This is the contnt for the first article.This is the contnt for the first article.</p>
+        <p>This is the contnt for the first article.This is the contnt for the first article.
+          This is the contnt for the first article.
+          This is the contnt for the first article.
+          This is the contnt for the first article.
+          This is the contnt for the first article.This is the contnt for the first article.This is the contnt for the first article.
+          This is the contnt for the first article.This is the contnt for the first article.</p>
+        <p>This is the contnt for the first article.This is the contnt for the first article.
+          This is the contnt for the first article.
+          This is the contnt for the first article.
+          This is the contnt for the first article.
+          This is the contnt for the first article.This is the contnt for the first article.This is the contnt for the first article.
+          This is the contnt for the first article.This is the contnt for the first article.</p>`
+  },
+  articletwo:{
+      title:'Article-Two|Adit Agarwal',
+      heading:'Article Two',
+      date:'Sept 15,2016',
+      content:`<p>This is the second article</p>`
+  },
+  articlethree:{
+      title:'Article-Three|Adit Agarwal',
+      heading:'Article Three',
+      date:'Sept 20,2016',
+      content:`<p>This is the third article</p>`
+  }
+};
+
+function createtemplate(data){
+    var title=data.title;
+    var heading=data.heading;
+    var date=data.date;
+    var content=data.content;
+    var htmltemplate=`<html>
+<head>
+<title>${title}</title>
+<meta name="viewport" content="width=device-width initialscale=1">
+<link href="/ui/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+  <div>
+      
+      <a href="/">${heading}</a>
+      </div>
+      <hr>
+      <div>
+         ${date}
+      </div>
+      <div>
+         ${content}
+      </div>
+      </div>
+</body>
+</html>
+`;
+        
+  return htmltemplate;  
+    
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+  res.send(createtemplate(articles[articleone]));    /*res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));*/
 });
 app.get('/article-two', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
