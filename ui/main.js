@@ -18,6 +18,6 @@ var x=function moveRight(){
 };
 
 image.onclick=function(){
-    var interval=setInterval(moveRight,50);
+    var interval=setInterval(x,50);
     
 };
