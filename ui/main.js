@@ -8,14 +8,14 @@ element.innerHTML="Hello this is the first page of the website";
 var image=document.getElementById('madi');
 var marginLeft=0;
 
-function moveRight(){
+var x=function moveRight(){
     marginLeft=marginLeft + 5;
     image.style.marginLeft=marginLeft +'px';
     if(marginLeft>200)
     {
-        clearInterval(interval);
+        clearInterval(x);
     }
-}
+};
 
 image.onclick=function(){
     var interval=setInterval(moveRight,50);
