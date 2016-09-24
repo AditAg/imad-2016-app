@@ -9,7 +9,7 @@ var image=document.getElementById('madi');
 var marginLeft=0;
 var varCounter=0;
 var x=function moveRight(){
-    if(varCounter<=10){
+    if(varCounter<=100){
         varCounter++;
     marginLeft=marginLeft + 5;
     image.style.marginLeft=marginLeft +'px';
