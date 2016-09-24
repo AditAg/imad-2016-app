@@ -11,7 +11,7 @@ var marginLeft=0;
 function moveRight(){
     marginLeft=marginLeft + 5;
     image.style.marginLeft=marginLeft +'px';
-    if(marginLeft>700)
+    if(marginLeft>200)
     {
         clearInterval(interval);
     }
