@@ -7,11 +7,14 @@ element.innerHTML="Hello this is the first page of the website";
 //move the  image
 var image=document.getElementById('madi');
 var marginLeft=0;
-
+var varCounter=0;
 var x=function moveRight(){
+    if(varCounter<=10){
+        varCounter++;
     marginLeft=marginLeft + 5;
     image.style.marginLeft=marginLeft +'px';
-    if(marginLeft>200)
+    }
+    else
     {
         clearInterval(x);
     }
