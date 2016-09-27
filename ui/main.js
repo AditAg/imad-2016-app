@@ -38,8 +38,8 @@ button.onclick=function(){
             //Take some action'
             if(request.status===200){
                 var counter=request.responseText;
-                var span=document.getElementById('count');
-                span.innerHTML=counter.toString();  
+                var spanx=document.getElementById('count');
+                spanx.innerHTML=counter.toString();  
             }
         }
         //Not done yet
@@ -76,8 +76,8 @@ submit.onclick=function(){
     for(var i=0;i<names.length;i++){
         list+='<li>'+names[i]+'</li>';
     }
-    var ul=document.getElementById('namelist');
-    ul.innerHTML=list;
+    var ull=document.getElementById('namelist');
+    ull.innerHTML=list;
             }
         }
         //Not done yet
