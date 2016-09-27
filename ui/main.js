@@ -36,7 +36,7 @@ button.onclick=function(){
     request.onreadystatechange=function(){
         if(request.readyState === XMLHttpRequest.DONE){
             //Take some action'
-            if(request.status===200){
+            if(request.status === 200){
                 var counter=request.responseText;
                 var spanx=document.getElementById('count');
                 spanx.innerHTML=counter.toString();  
@@ -55,9 +55,7 @@ button.onclick=function(){
 
 
 //Submit name
-var nameInput = document.getElementById('name');
-var name1=nameInput.value;
-console.log(name1);
+
 var submit=document.getElementById('submit_btn');
 submit.onclick=function(){
     
@@ -65,10 +63,10 @@ submit.onclick=function(){
     
     var request = new XMLHttpRequest();
     //Capture the response and store it in a variable
-    request.onreadystatechange=function(){
+    request.onreadystatechange=function () {
         if(request.readyState === XMLHttpRequest.DONE){
             //Take some action'
-            if(request.status===200){
+            if(request.status === 200){
                //Capture a list of names and render it as a list
     var names=request.responseText;
     names=JSON.parse(names);
@@ -86,6 +84,8 @@ submit.onclick=function(){
     //Render the variable in the correct span
     
     //Make the request
+    var nameInput = document.getElementById('name');
+    var name1=nameInput.value;
     request.open('GET','http://aditag.imad.hasura-app.io/submit-name?name='+name1,true);
     request.send(null);
     
