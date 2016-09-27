@@ -97,6 +97,25 @@ app.get('/article-three', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
 });
 
+//this ihas to be put before :articlename url else that tries to get executed and thus gives an error
+var names=[];
+//1st method-app.get('/submit-name/:name',function(req,res){
+ //   //get the name from the request
+ //   var name=req.params.name;
+ //   names.push(name);
+  //  //JSON-JavaScript Object Notation-used to convert Javascript objects to strings
+    
+  //  res.send(JSON.stringify(names));
+//});
+
+//2nd method-using query parameters
+app.get('/submit-name',function(req,res){//URL:/submit-name?name=xxxx
+ var name=req.query.name;
+    names.push(name);
+    res.send(JSON.stringify(names));
+    
+});
+
 /*app.get('/:articlename',function(req,res){
 var articlename=req.params.articlename;
     res.send(createtemplate(articles[articlename]));
@@ -110,15 +129,6 @@ app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
-var names=[];
-app.get('/submit-name/:name',function(req,res){
-    //get the name from the request
-    var name=req.params.name;
-    names.push(name);
-    //JSON-JavaScript Object Notation-used to convert Javascript objects to strings
-    
-    res.send(JSON.stringify(names));
-});
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
